@@ -365,17 +365,30 @@ h1 {
 }
 
 .author-line {
-  margin: 30px 0 0;
+  max-width: 880px;
+  margin: 30px auto 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.06rem;
+  font-size: 1.04rem;
+  line-height: 1.65;
   color: var(--ink);
 }
 
+.author-line sup {
+  color: var(--robot-ink);
+  font-weight: 700;
+  font-size: 0.66em;
+}
+
 .affil-line {
-  margin: 5px 0 0;
-  font-size: 0.92rem;
+  margin: 9px 0 0;
+  font-size: 0.9rem;
   color: var(--muted);
+}
+
+.affil-line sup {
+  color: var(--robot-ink);
+  font-weight: 700;
 }
 
 .hero-copy {
@@ -802,6 +815,80 @@ figcaption {
 
 .figure-compact img {
   object-fit: contain;
+}
+
+/* Pending-figure placeholder (asset not yet supplied) */
+.figure-pending {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgba(58, 95, 217, 0.12), transparent 55%),
+    radial-gradient(120% 120% at 100% 100%, rgba(238, 106, 58, 0.12), transparent 55%),
+    var(--bg-tint);
+  color: var(--muted);
+}
+
+.figure-pending svg {
+  width: 38px;
+  height: 38px;
+  color: var(--blend);
+  opacity: 0.7;
+}
+
+.figure-pending span {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* Embodiments grid */
+.embodiment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.embodiment-card {
+  position: relative;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.embodiment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad);
+}
+
+.embodiment-index {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--robot-ink);
+}
+
+.embodiment-card h3 {
+  margin-bottom: 7px;
+}
+
+.embodiment-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
 }
 
 /* ---------- Results summary ---------- */
@@ -1314,7 +1401,8 @@ tbody tr:hover td {
   .method-steps,
   .result-summary,
   .media-grid,
-  .spec-grid {
+  .spec-grid,
+  .embodiment-grid {
     grid-template-columns: 1fr;
   }
 

@@ -37,6 +37,7 @@
           <a href="#overview">Overview</a>
           <a href="#method">Method</a>
           <a href="#glove">OOL Glove</a>
+          <a href="#embodiments">Embodiments</a>
           <a href="#results">Results</a>
           <a href="#abstract">Abstract</a>
         </div>
@@ -58,8 +59,11 @@
           </p>
           <div class="wordmark gradient-text" aria-hidden="true">LaST&#8209;HD</div>
           <h1>Learning Latent Physical Reasoning from Human Data for Robot Manipulation</h1>
-          <p class="author-line">Anonymous Authors</p>
-          <p class="affil-line">Affiliations withheld for double-blind review</p>
+          <p class="author-line">
+            Jiaming Liu<sup>*</sup>, Yinxi Wang<sup>*</sup>, Chenyang Gu<sup>*</sup>, Siyuan Qian<sup>*</sup>,
+            Xiangju Mi, Hao Chen, Jiawei Chen, Qingpo Wuwu, Xiaoqi Li, Yang Yue, Peng Jia, Hao Tang, Shanghang Zhang
+          </p>
+          <p class="affil-line"><sup>*</sup>&nbsp;Equal contribution</p>
           <p class="hero-copy">
             LaST-HD transfers scalable human-hand demonstrations into robot action learning by aligning
             <span class="tag tag-human">human</span> and <span class="tag tag-robot">robot</span> trajectories inside a
@@ -280,22 +284,64 @@
               <div><strong>4&ndash;5&times;</strong><span>faster than teleop</span></div>
             </div>
           </div>
-          <figure class="figure-shell figure-compact" data-zoom>
-            <img
-              src="assets/figures/glove-asset.png"
-              alt="OOL Glove hardware assets and hand-wrist tracking layout."
-              loading="lazy"
-              decoding="async"
-            >
+          <figure class="figure-shell figure-compact">
+            <div class="figure-pending">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span>Waiting for GuChenyang</span>
+            </div>
             <figcaption>
-              OOL Glove captures 21 hand-wrist keypoints with lightweight 9-axis IMUs at over 200&nbsp;Hz and
-              sub-millimeter RMS error.
+              OOL Glove hardware figure &mdash; coming soon. It will show the glove capturing 21 hand-wrist keypoints
+              with lightweight 9-axis IMUs at over 200&nbsp;Hz and sub-millimeter RMS error.
             </figcaption>
           </figure>
         </div>
       </section>
 
-      <section id="results" class="section-pad section-alt">
+      <section id="embodiments" class="section-pad section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Embodiments</p>
+            <h2>Three real-robot embodiments.</h2>
+            <p>
+              LaST-HD is deployed across two dual-arm platforms with interchangeable end-effectors and a dexterous
+              hand, observed by synchronized head and wrist cameras.
+            </p>
+          </div>
+
+          <figure class="figure-shell" data-zoom>
+            <img
+              src="assets/figures/embodiments.png"
+              alt="The three robot embodiments used by LaST-HD: TianJi arm with WOMMER gripper, TianJi arm with WuJi dexterous hand, and Galaxea R1Lite."
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>
+              Hardware setup: a head camera (Intel ZED&nbsp;2i) and wrist camera (Insta360 GO&nbsp;3S) across the
+              dual-arm platforms and two interchangeable end-effectors.
+            </figcaption>
+          </figure>
+
+          <div class="embodiment-grid">
+            <article class="embodiment-card">
+              <span class="embodiment-index">01</span>
+              <h3>TianJi arm + WOMMER gripper</h3>
+              <p>Dual-arm parallel-jaw grasping.</p>
+            </article>
+            <article class="embodiment-card">
+              <span class="embodiment-index">02</span>
+              <h3>TianJi arm + WuJi dexterous hand</h3>
+              <p>Dual-arm dexterous manipulation.</p>
+            </article>
+            <article class="embodiment-card">
+              <span class="embodiment-index">03</span>
+              <h3>Galaxea R1Lite</h3>
+              <p>Dual-arm gripper platform.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="section-pad">
         <div class="container">
           <div class="section-heading">
             <p class="kicker">Results</p>
@@ -485,7 +531,7 @@
         </div>
       </section>
 
-      <section id="abstract" class="section-pad">
+      <section id="abstract" class="section-pad section-alt">
         <div class="container">
           <div class="section-heading center">
             <p class="kicker">Abstract</p>
@@ -516,7 +562,7 @@
         </div>
       </section>
 
-      <section id="citation" class="section-pad section-alt citation-section">
+      <section id="citation" class="section-pad citation-section">
         <div class="container">
           <div class="section-heading compact center">
             <p class="kicker">Citation</p>
@@ -535,7 +581,7 @@
             </div>
             <pre><code id="bibtex">@article{last_hd_2026,
   title   = {LaST-HD: Learning Latent Physical Reasoning from Human Data for Robot Manipulation},
-  author  = {Anonymous},
+  author  = {Liu, Jiaming and Wang, Yinxi and Gu, Chenyang and Qian, Siyuan and Mi, Xiangju and Chen, Hao and Chen, Jiawei and Wuwu, Qingpo and Li, Xiaoqi and Yue, Yang and Jia, Peng and Tang, Hao and Zhang, Shanghang},
   year    = {2026}
 }</code></pre>
           </div>
