@@ -9,58 +9,56 @@
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Active section highlight ---------- */
+/* ---------- Active nav highlight + scroll progress ----------
+   Position-based scrollspy (not intersection-ratio): we mark the last section
+   whose top has crossed a line ~33% down the viewport. This stays correct for
+   very tall sections like Results, where a ratio-based observer never reaches
+   its threshold and the highlight fails to advance. */
 const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
-
-if ("IntersectionObserver" in window && sections.length) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visible) return;
-
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
-      });
-    },
-    {
-      rootMargin: "-20% 0px -55% 0px",
-      threshold: [0.1, 0.2, 0.4, 0.6],
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-}
-
-/* ---------- Scroll progress bar ---------- */
 const progressBar = document.getElementById("progress-bar");
 
-if (progressBar) {
-  let ticking = false;
-  const updateProgress = () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
-    progressBar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
-    ticking = false;
-  };
+function updateOnScroll() {
+  const scrollY = window.scrollY;
+  const viewportH = window.innerHeight;
+  const docH = document.documentElement.scrollHeight;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateProgress);
-        ticking = true;
-      }
-    },
-    { passive: true }
-  );
-  updateProgress();
+  if (progressBar) {
+    const scrollable = docH - viewportH;
+    const ratio = scrollable > 0 ? scrollY / scrollable : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+  }
+
+  if (sections.length) {
+    const line = viewportH * 0.33;
+    let current = null;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= line) current = section;
+    }
+    // Near the very bottom, ensure the final tracked section stays highlighted.
+    if (scrollY + viewportH >= docH - 2) current = sections[sections.length - 1];
+    const activeId = current ? current.id : null;
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
+    });
+  }
 }
+
+let scrollTicking = false;
+function requestScrollUpdate() {
+  if (!scrollTicking) {
+    scrollTicking = true;
+    window.requestAnimationFrame(() => {
+      updateOnScroll();
+      scrollTicking = false;
+    });
+  }
+}
+window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+window.addEventListener("resize", requestScrollUpdate);
+updateOnScroll();
 
 /* ---------- Scroll reveal ---------- */
 const revealSelectors = [
