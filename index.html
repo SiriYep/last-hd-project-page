@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LaST-HD: Learning Latent Physical Reasoning from Human Data for Robot Manipulation</title>
+    <meta
+      name="description"
+      content="Project page for LaST-HD, a human-to-robot action learning paradigm that aligns human-hand and robot demonstrations through latent physical reasoning."
+    >
+    <meta property="og:title" content="LaST-HD">
+    <meta property="og:description" content="Learning Latent Physical Reasoning from Human Data for Robot Manipulation">
+    <meta property="og:image" content="assets/figures/teaser.png">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add("js");</script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav-brand" href="#top" aria-label="LaST-HD home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          LaST-HD
+        </a>
+        <div class="nav-links">
+          <a href="#media">Videos</a>
+          <a href="#overview">Overview</a>
+          <a href="#method">Method</a>
+          <a href="#glove">OOL Glove</a>
+          <a href="#results">Results</a>
+          <a href="#abstract">Abstract</a>
+        </div>
+        <a class="nav-cta" href="assets/paper/main.pdf">
+          Paper
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-pad">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-grid-overlay" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <p class="hero-badge">
+            <span class="dot" aria-hidden="true"></span>
+            CoRL 2026 Submission
+          </p>
+          <div class="wordmark gradient-text" aria-hidden="true">LaST&#8209;HD</div>
+          <h1>Learning Latent Physical Reasoning from Human Data for Robot Manipulation</h1>
+          <p class="author-line">Anonymous Authors</p>
+          <p class="affil-line">Affiliations withheld for double-blind review</p>
+          <p class="hero-copy">
+            LaST-HD transfers scalable human-hand demonstrations into robot action learning by aligning
+            <span class="tag tag-human">human</span> and <span class="tag tag-robot">robot</span> trajectories inside a
+            shared latent physical reasoning space &mdash; pairing an action-conditioned world model with OOL Glove data
+            collection and a progressive mixed-to-human training recipe.
+          </p>
+          <div class="hero-actions" aria-label="Project links">
+            <a class="button button-primary" href="assets/paper/main.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6M9 17h6"/></svg>
+              Paper
+            </a>
+            <a class="button" href="#media">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg>
+              Videos
+            </a>
+            <span class="button button-disabled" aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 9-3 3 3 3M16 9l3 3-3 3M13 7l-2 10"/></svg>
+              Code soon
+            </span>
+            <span class="button button-disabled" aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.6 3.1 3 7 3s7-1.4 7-3V6"/><path d="M5 12c0 1.6 3.1 3 7 3s7-1.4 7-3"/></svg>
+              Data soon
+            </span>
+          </div>
+          <figure class="hero-figure" data-zoom>
+            <img
+              src="assets/figures/teaser.png"
+              alt="Overview of LaST-HD across latent alignment, OOL Glove data, and robot manipulation tasks."
+              fetchpriority="high"
+            >
+            <figcaption>
+              LaST-HD aligns unpaired human-hand and robot demonstrations in a shared latent physical-reasoning space,
+              then learns from human data through a progressive mixed-to-human recipe.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="media" class="section-pad section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Videos</p>
+            <h2>Watch LaST-HD execute, collect, and adapt.</h2>
+            <p>
+              The layout below is ready for robot rollout videos, OOL Glove data collection clips, and side-by-side
+              generalization comparisons. Final media assets will be dropped into these slots.
+            </p>
+          </div>
+
+          <div class="media-grid">
+            <article class="media-slot">
+              <div class="slot-frame">
+                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+                <span>Video slot 01</span>
+              </div>
+              <h3>Robot execution rollouts</h3>
+            </article>
+            <article class="media-slot">
+              <div class="slot-frame">
+                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+                <span>Video slot 02</span>
+              </div>
+              <h3>OOL Glove collection</h3>
+            </article>
+            <article class="media-slot">
+              <div class="slot-frame">
+                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+                <span>Video slot 03</span>
+              </div>
+              <h3>Unseen scenario adaptation</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section-pad">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Overview</p>
+            <h2>Human-hand demonstrations become robot-ready physical supervision.</h2>
+            <p>
+              Rather than directly imitating human kinematics, LaST-HD supervises a reasoning-before-acting VLA with
+              world-model latents that capture predicted physical consequences across embodiments.
+            </p>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric-card">
+              <strong>6</strong>
+              <span>real-world tasks</span>
+            </div>
+            <div class="metric-card">
+              <strong>3</strong>
+              <span>robot embodiments</span>
+            </div>
+            <div class="metric-card">
+              <strong>21</strong>
+              <span>hand-wrist keypoints</span>
+            </div>
+            <div class="metric-card">
+              <strong>20<small>min</small></strong>
+              <span>for 60 OOL corrections</span>
+            </div>
+          </div>
+
+          <div class="contribution-grid">
+            <article class="content-card accent-blend">
+              <div class="card-top">
+                <span class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.8 7.4-4.5M8.3 13.2l7.4 4.5"/></svg>
+                </span>
+                <p class="card-index">01</p>
+              </div>
+              <h3>Latent human-to-robot alignment</h3>
+              <p>
+                An action-conditioned world model maps unpaired human-hand and robot demonstrations into a shared
+                physical reasoning space before action generation.
+              </p>
+            </article>
+            <article class="content-card accent-human">
+              <div class="card-top">
+                <span class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11.5V5.5a1.5 1.5 0 0 1 3 0V10m0-.5V4.2a1.5 1.5 0 0 1 3 0V10m0-.7V6a1.5 1.5 0 0 1 3 0v7a6 6 0 0 1-6 6h-1a5 5 0 0 1-3.6-1.5L4 14.6a1.6 1.6 0 0 1 2.3-2.2L8 14.2"/></svg>
+                </span>
+                <p class="card-index">02</p>
+              </div>
+              <h3>Out-of-Lab data collection</h3>
+              <p>
+                OOL Glove records native human-hand interactions with lightweight IMU-based tracking, enabling efficient
+                retargetable supervision for grippers and dexterous hands.
+              </p>
+            </article>
+            <article class="content-card accent-robot">
+              <div class="card-top">
+                <span class="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 4v4h-4"/></svg>
+                </span>
+                <p class="card-index">03</p>
+              </div>
+              <h3>Mixed-to-human training</h3>
+              <p>
+                Mixed human-robot co-training is followed by human-hand online correction, giving LaST-HD a practical
+                path from scalable human data to deployment adaptation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="section-pad section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Method</p>
+            <h2>A reasoning-before-acting VLA aligned by predicted physical consequences.</h2>
+            <p>
+              LaST-HD keeps the world model as a training-time alignment bridge. Its denoised future-frame features
+              supervise compact latent reasoning tokens, which then condition the action expert through shared attention.
+            </p>
+          </div>
+
+          <figure class="figure-shell" data-zoom>
+            <img
+              src="assets/figures/method.png"
+              alt="LaST-HD method diagram showing world-model latent alignment, OOL Glove collection, and mixed-to-human training."
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>
+              The LaST-HD framework: (a) an action-conditioned world model supervises latent reasoning tokens that
+              condition the action expert via shared attention; (b) the OOL Glove capture rig; (c) the mixed-to-human
+              training recipe.
+            </figcaption>
+          </figure>
+
+          <div class="method-steps">
+            <article class="step-card">
+              <span class="step-num">01</span>
+              <h3>Action-conditioned world model</h3>
+              <p>
+                Human and robot trajectories are not required to be paired. Action chunks act as weak anchors while the
+                world model predicts shared physical consequences.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-num">02</span>
+              <h3>Latent reasoning supervision</h3>
+              <p>
+                Deep U-Net features from generated future frames are projected and pooled into latent targets for the
+                LaST-HD reasoning expert.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-num">03</span>
+              <h3>Action generation</h3>
+              <p>
+                The action expert predicts robot action chunks through flow matching, conditioned on language, vision,
+                and the aligned latent reasoning state.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="glove" class="section-pad">
+        <div class="container split-layout">
+          <div class="split-copy">
+            <p class="kicker kicker-human">OOL Glove</p>
+            <h2>Low-cost, high-frequency human-hand data collection outside the lab.</h2>
+            <p>
+              OOL Glove is designed to preserve native hand-object interaction instead of collecting device-specific
+              exoskeleton commands. Demonstrations are synchronized with language, visual observations, wrist motion,
+              and fine-grained hand-wrist state.
+            </p>
+            <div class="spec-grid">
+              <div><strong>&lt;100 g</strong><span>per glove</span></div>
+              <div><strong>&gt;200 Hz</strong><span>tracking rate</span></div>
+              <div><strong>&lt;10 ms</strong><span>latency</span></div>
+              <div><strong>4&ndash;5&times;</strong><span>faster than teleop</span></div>
+            </div>
+          </div>
+          <figure class="figure-shell figure-compact" data-zoom>
+            <img
+              src="assets/figures/glove-asset.png"
+              alt="OOL Glove hardware assets and hand-wrist tracking layout."
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>
+              OOL Glove captures 21 hand-wrist keypoints with lightweight 9-axis IMUs at over 200&nbsp;Hz and
+              sub-millimeter RMS error.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="results" class="section-pad section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Results</p>
+            <h2>Better in-domain performance and stronger human-data generalization.</h2>
+            <p>
+              LaST-HD is evaluated on six real-world manipulation tasks across dual-arm grippers and dexterous hands,
+              including unseen positions, objects, and backgrounds.
+            </p>
+          </div>
+
+          <div class="result-summary">
+            <article class="accent-robot">
+              <strong>0.73</strong>
+              <span>average in-domain success for LaST-HD</span>
+            </article>
+            <article class="accent-human">
+              <strong>0.56</strong>
+              <span>global average under unseen human-data adaptation</span>
+            </article>
+            <article class="accent-blend">
+              <strong class="gradient-text">100%</strong>
+              <span>Sort Fruits unseen object/background after OOL corrections</span>
+            </article>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="In-domain result table" tabindex="0">
+            <table>
+              <caption>In-domain success rates across six tasks</caption>
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Unscrew Cap</th>
+                  <th>Organize Box</th>
+                  <th>Sort Fruits</th>
+                  <th>Put and Zip</th>
+                  <th>Pour Water</th>
+                  <th>Grasp Clamp</th>
+                  <th>Avg</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>pi0.5</td>
+                  <td>0.70</td>
+                  <td>0.70</td>
+                  <td>0.85</td>
+                  <td>0.75</td>
+                  <td>0.30</td>
+                  <td>0.40</td>
+                  <td>0.62</td>
+                </tr>
+                <tr>
+                  <td>Cosmos-Policy</td>
+                  <td>0.75</td>
+                  <td>0.50</td>
+                  <td>0.85</td>
+                  <td>0.60</td>
+                  <td>0.20</td>
+                  <td>0.20</td>
+                  <td>0.52</td>
+                </tr>
+                <tr>
+                  <td>LaST0</td>
+                  <td>0.80</td>
+                  <td>0.70</td>
+                  <td>0.75</td>
+                  <td>0.60</td>
+                  <td>0.40</td>
+                  <td>0.50</td>
+                  <td>0.63</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>LaST-HD</td>
+                  <td>0.85</td>
+                  <td>0.70</td>
+                  <td>0.95</td>
+                  <td>0.80</td>
+                  <td>0.60</td>
+                  <td>0.45</td>
+                  <td>0.73</td>
+                </tr>
+                <tr class="highlight-row muted">
+                  <td>LaST-HD (Mix-HD)</td>
+                  <td>0.85</td>
+                  <td>0.70</td>
+                  <td>0.85</td>
+                  <td>0.80</td>
+                  <td>0.40</td>
+                  <td>0.45</td>
+                  <td>0.68</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="Generalization result table" tabindex="0">
+            <table>
+              <caption>Average success rates under generalization settings</caption>
+              <thead>
+                <tr>
+                  <th>Training setting</th>
+                  <th>Method</th>
+                  <th>Position</th>
+                  <th>Object</th>
+                  <th>Background</th>
+                  <th>Global Avg</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>In-domain only</td>
+                  <td>pi0.5</td>
+                  <td>0.12</td>
+                  <td>0.36</td>
+                  <td>0.43</td>
+                  <td>0.30</td>
+                </tr>
+                <tr>
+                  <td>In-domain only</td>
+                  <td>Cosmos-Policy</td>
+                  <td>0.13</td>
+                  <td>0.28</td>
+                  <td>0.38</td>
+                  <td>0.26</td>
+                </tr>
+                <tr>
+                  <td>In-domain only</td>
+                  <td>LaST0</td>
+                  <td>0.15</td>
+                  <td>0.32</td>
+                  <td>0.43</td>
+                  <td>0.30</td>
+                </tr>
+                <tr>
+                  <td>In-domain only</td>
+                  <td>LaST-HD (Mix-HD)</td>
+                  <td>0.15</td>
+                  <td>0.35</td>
+                  <td>0.43</td>
+                  <td>0.31</td>
+                </tr>
+                <tr class="highlight-row muted">
+                  <td>Additional unseen human data</td>
+                  <td>LaST0 (w/ unseen HD)</td>
+                  <td>0.33</td>
+                  <td>0.49</td>
+                  <td>0.58</td>
+                  <td>0.46</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td>Additional unseen human data</td>
+                  <td>LaST-HD (w/ unseen HD)</td>
+                  <td>0.41</td>
+                  <td>0.58</td>
+                  <td>0.68</td>
+                  <td>0.56</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="figure-grid">
+            <figure class="figure-shell" data-zoom>
+              <img
+                src="assets/figures/ablation.png"
+                alt="Ablation results and attention visualizations for LaST-HD."
+                loading="lazy"
+                decoding="async"
+              >
+              <figcaption>
+                Human-hand online correction, latent-alignment ablations, and latent-token attention maps for human and
+                robot data.
+              </figcaption>
+            </figure>
+            <figure class="figure-shell" data-zoom>
+              <img
+                src="assets/figures/evaluation.png"
+                alt="Robot executions and OOL Glove data in unseen scenarios."
+                loading="lazy"
+                decoding="async"
+              >
+              <figcaption>
+                Robot executions and OOL Glove rollouts under unseen backgrounds, objects, and positions.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="abstract" class="section-pad">
+        <div class="container">
+          <div class="section-heading center">
+            <p class="kicker">Abstract</p>
+            <h2>Beyond geometry &mdash; aligning the physical dynamics of human and robot manipulation.</h2>
+          </div>
+          <div class="abstract-body">
+            <p>
+              Human-hand demonstrations provide a direct and scalable source of physical interaction data for robot
+              learning. While manual retargeting is indispensable for establishing kinematic action correspondence across
+              different morphologies, robust transfer requires going beyond geometry to address the underlying alignment
+              of physical dynamics between human and robot manipulation. To address this, we introduce <strong>LaST-HD</strong>,
+              a novel human-to-robot action learning paradigm that extends reasoning-before-acting VLA by aligning
+              human-hand and robot demonstrations in a shared latent reasoning space. Rather than mimicking human
+              kinematics, LaST-HD trains an auxiliary action-conditioned world model on human-hand and robot trajectories
+              to synthesize unified latent targets, aligning cross-embodiment representations through predicted physical
+              consequences.
+            </p>
+            <p>
+              Moreover, we develop <strong>Out-of-Lab (OOL) Glove</strong>, a low-cost motion-capture glove tailored to
+              LaST-HD for human-hand data collection, providing precise keypoints and universal action supervision across
+              grippers and dexterous hands. Armed with the aligned latent space and high-fidelity human-hand data, we
+              develop a progressive <strong>mixed-to-human training recipe</strong>. Through mixed co-training, LaST-HD
+              improves generalization to novel objects, scenes, and positions using only human-hand demonstrations; with
+              online correction, it adapts to novel environments and achieves <strong>over 90% accuracy using only
+              20&nbsp;minutes</strong> of OOL glove data.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="citation" class="section-pad section-alt citation-section">
+        <div class="container">
+          <div class="section-heading compact center">
+            <p class="kicker">Citation</p>
+            <h2>BibTeX</h2>
+          </div>
+          <div class="bibtex-block">
+            <div class="bibtex-bar">
+              <span class="bibtex-label">
+                <span class="bar-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                citation.bib
+              </span>
+              <button class="copy-button" type="button" data-copy-target="bibtex">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                Copy
+              </button>
+            </div>
+            <pre><code id="bibtex">@article{last_hd_2026,
+  title   = {LaST-HD: Learning Latent Physical Reasoning from Human Data for Robot Manipulation},
+  author  = {Anonymous},
+  year    = {2026}
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>LaST-HD &middot; CoRL 2026 Project Page</span>
+        </div>
+        <div class="footer-links">
+          <a href="assets/paper/main.pdf">Paper</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

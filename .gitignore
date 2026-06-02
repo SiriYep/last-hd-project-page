@@ -1,0 +1,20 @@
+# OS / editor
+.DS_Store
+
+# Local tooling (preview server config, etc.)
+/.claude/
+
+# Paper LaTeX source & working files — kept local only (not needed by the site;
+# avoids publishing source for the double-blind submission). The compiled
+# assets/paper/main.pdf linked by the page is still tracked.
+# Leading slash anchors this to the repo root so it does NOT match assets/paper/.
+/paper/
+
+# LaTeX build artifacts
+assets/paper/*.aux
+assets/paper/*.bbl
+assets/paper/*.blg
+assets/paper/*.fdb_latexmk
+assets/paper/*.fls
+assets/paper/*.log
+assets/paper/*.out
