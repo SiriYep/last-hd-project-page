@@ -3,6 +3,7 @@
 
 # Local tooling (preview server config, etc.)
 /.claude/
+/surge-dist/
 
 # Surge local domain file. Use `npx surge . last-hd.surge.sh` instead of
 # committing a CNAME that would also affect GitHub Pages.

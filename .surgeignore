@@ -5,4 +5,5 @@
 .gitignore
 .surgeignore
 CNAME
-/paper/
+deploy-surge.sh
+surge-dist/
