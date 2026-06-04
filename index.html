@@ -35,6 +35,7 @@
           <a href="#glove">OOL Glove</a>
           <a href="#embodiments">Embodiments</a>
           <a href="#results">Results</a>
+          <a href="#analysis">Analysis</a>
           <a href="#abstract">Abstract</a>
         </div>
       </nav>
@@ -65,6 +66,8 @@
             <img
               src="assets/figures/teaser.png"
               alt="Overview of LaST-HD across latent alignment, OOL Glove data, and robot manipulation tasks."
+              width="2353"
+              height="968"
               fetchpriority="high"
             >
             <figcaption>
@@ -79,35 +82,196 @@
         <div class="container">
           <div class="section-heading">
             <p class="kicker">Videos</p>
-            <h2>Watch LaST-HD execute, collect, and adapt.</h2>
+            <h2>Paired robot-human data and final deployment rollouts.</h2>
             <p>
-              The layout below is ready for robot rollout videos, OOL Glove data collection clips, and side-by-side
-              generalization comparisons. Final media assets will be dropped into these slots.
+              In-domain robot demonstrations are paired with corresponding OOL Glove human data, followed by final
+              policy rollouts under the same evaluation scenarios.
             </p>
           </div>
 
-          <div class="media-grid">
-            <article class="media-slot">
-              <div class="slot-frame">
-                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-                <span>Video slot 01</span>
+          <div class="video-showcase">
+            <section class="video-block" aria-labelledby="paired-data-title">
+              <div class="video-block-header">
+                <h3 id="paired-data-title">Paired data examples</h3>
+                <p>
+                  <span>Top row: robot demonstrations.</span>
+                  <span>Bottom row: matching OOL Glove human demonstrations.</span>
+                </p>
               </div>
-              <h3>Robot execution rollouts</h3>
-            </article>
-            <article class="media-slot">
-              <div class="slot-frame">
-                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-                <span>Video slot 02</span>
+              <div class="video-pair-scroll" role="region" aria-label="Paired robot and human data videos" tabindex="0">
+                <div class="video-pair-grid">
+                  <div class="video-task-heading">
+                    <span>Task 01</span>
+                    <strong>Sort Fruits</strong>
+                  </div>
+                  <div class="video-task-heading">
+                    <span>Task 02</span>
+                    <strong>Put Items to Bag and Zip</strong>
+                  </div>
+                  <div class="video-task-heading">
+                    <span>Task 03</span>
+                    <strong>Unscrew Bottle Cap</strong>
+                  </div>
+                  <div class="video-task-heading">
+                    <span>Task 04</span>
+                    <strong>Organize Box</strong>
+                  </div>
+                  <div class="video-task-heading">
+                    <span>Task 05</span>
+                    <strong>Grasp Clamp onto Bun</strong>
+                  </div>
+                  <div class="video-task-heading">
+                    <span>Task 06</span>
+                    <strong>Pour Water</strong>
+                  </div>
+
+                  <div class="video-row-heading">
+                    <span>Robot data</span>
+                    <strong>In-domain</strong>
+                  </div>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-sort.jpg" aria-label="Sort Fruits in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/sort-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-bag.jpg" aria-label="Put Items to Bag and Zip in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/bag-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-cap.jpg" aria-label="Unscrew Bottle Cap in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/cap-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-box.jpg" aria-label="Organize Box in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/box-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-burger.jpg" aria-label="Grasp Clamp onto Bun in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/burger-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-robot">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-robot-pour.jpg" aria-label="Pour Water in-domain robot demonstration">
+                      <source src="assets/videos/data/robot/pour-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+
+                  <div class="video-row-heading video-row-heading-human">
+                    <span>Human data</span>
+                    <strong>Matched OOL Glove</strong>
+                  </div>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">Unseen background</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-sort-bg.jpg" aria-label="Sort Fruits OOL Glove human data under unseen background">
+                      <source src="assets/videos/data/human/sort-ood-bg.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">In-domain</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-bag-in.jpg" aria-label="Put Items to Bag and Zip OOL Glove human data">
+                      <source src="assets/videos/data/human/bag-in.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">Unseen object</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-cap-obj.jpg" aria-label="Unscrew Bottle Cap OOL Glove human data under unseen object">
+                      <source src="assets/videos/data/human/cap-ood-obj.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">Unseen object</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-box-obj.jpg" aria-label="Organize Box OOL Glove human data under unseen object">
+                      <source src="assets/videos/data/human/box-ood-obj.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">Unseen position</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-burger-pos.jpg" aria-label="Grasp Clamp onto Bun OOL Glove human data under unseen position">
+                      <source src="assets/videos/data/human/burger-ood-pos.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                  <article class="video-card video-card-compact">
+                    <span class="video-chip chip-human">Unseen background</span>
+                    <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/data-human-pour-bg.jpg" aria-label="Pour Water OOL Glove human data under unseen background">
+                      <source src="assets/videos/data/human/pour-ood-bg.mp4" type="video/mp4">
+                    </video>
+                  </article>
+                </div>
               </div>
-              <h3>OOL Glove collection</h3>
-            </article>
-            <article class="media-slot">
-              <div class="slot-frame">
-                <svg class="slot-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
-                <span>Video slot 03</span>
+            </section>
+
+            <section class="video-block" aria-labelledby="test-rollouts-title">
+              <div class="video-block-header">
+                <h3 id="test-rollouts-title">Final test rollouts</h3>
+                <p>Policy executions under the final evaluation settings.</p>
               </div>
-              <h3>Unseen scenario adaptation</h3>
-            </article>
+              <div class="video-test-grid">
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Sort Fruits</strong>
+                    <span class="video-chip chip-human">Unseen background</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-sort-bg.jpg" aria-label="Sort Fruits final test rollout under unseen background">
+                    <source src="assets/videos/test/sort-bg.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Put Items to Bag and Zip</strong>
+                    <span class="video-chip chip-robot">In-domain</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-bag-in.jpg" aria-label="Put Items to Bag and Zip final test rollout">
+                    <source src="assets/videos/test/bag-in.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Unscrew Bottle Cap</strong>
+                    <span class="video-chip chip-human">Unseen object</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-cap-obj.jpg" aria-label="Unscrew Bottle Cap final test rollout under unseen object">
+                    <source src="assets/videos/test/cap-obj.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Organize Box</strong>
+                    <span class="video-chip chip-human">Unseen object</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-box-obj.jpg" aria-label="Organize Box final test rollout under unseen object">
+                    <source src="assets/videos/test/box-obj.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Grasp Clamp onto Bun</strong>
+                    <span class="video-chip chip-human">Unseen position</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-burger-pos.jpg" aria-label="Grasp Clamp onto Bun final test rollout under unseen position">
+                    <source src="assets/videos/test/burger-pos.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="video-card">
+                  <div class="video-meta">
+                    <strong>Pour Water</strong>
+                    <span class="video-chip chip-human">Unseen background</span>
+                  </div>
+                  <video autoplay muted loop playsinline preload="metadata" poster="assets/videos/posters/test-pour-bg.jpg" aria-label="Pour Water final test rollout under unseen background">
+                    <source src="assets/videos/test/pour-bg.mp4" type="video/mp4">
+                  </video>
+                </article>
+              </div>
+            </section>
           </div>
         </div>
       </section>
@@ -201,6 +365,8 @@
             <img
               src="assets/figures/method.png"
               alt="LaST-HD method diagram showing world-model latent alignment, OOL Glove collection, and mixed-to-human training."
+              width="2435"
+              height="1078"
               loading="lazy"
               decoding="async"
             >
@@ -257,14 +423,18 @@
               <div><strong>4&ndash;5&times;</strong><span>faster than teleop</span></div>
             </div>
           </div>
-          <figure class="figure-shell figure-compact">
-            <div class="figure-pending">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-              <span>Figure coming soon</span>
-            </div>
+          <figure class="figure-shell figure-compact" data-zoom>
+            <img
+              src="assets/figures/ool-glove.png"
+              alt="OOL Glove hardware, human collection setup, and reconstructed hand-wrist keypoint data."
+              width="2054"
+              height="563"
+              loading="lazy"
+              decoding="async"
+            >
             <figcaption>
-              OOL Glove hardware figure &mdash; coming soon. It will show the glove capturing 21 hand-wrist keypoints
-              with lightweight 9-axis IMUs at over 200&nbsp;Hz and sub-millimeter RMS error.
+              OOL Glove hardware and human-native data collection setup, including six compact IMU modules,
+              synchronized wrist/head observations, and reconstructed 6-DoF hand-wrist keypoints.
             </figcaption>
           </figure>
         </div>
@@ -285,6 +455,8 @@
             <img
               src="assets/figures/embodiments.png"
               alt="The three robot embodiments used by LaST-HD: TianJi arm with WOMMER gripper, TianJi arm with WuJi dexterous hand, and Galaxea R1Lite."
+              width="2380"
+              height="1358"
               loading="lazy"
               decoding="async"
             >
@@ -324,6 +496,21 @@
               including unseen positions, objects, and backgrounds.
             </p>
           </div>
+
+          <figure class="figure-shell figure-feature" data-zoom>
+            <img
+              src="assets/figures/task-summary.png"
+              alt="Six-task execution and human-data generalization summary for LaST-HD."
+              width="2400"
+              height="1350"
+              loading="lazy"
+              decoding="async"
+            >
+            <figcaption>
+              Task summary across the six real-world manipulation settings and the corresponding OOL Glove
+              demonstrations under unseen backgrounds, objects, and positions.
+            </figcaption>
+          </figure>
 
           <div class="result-summary">
             <article class="accent-robot">
@@ -481,6 +668,8 @@
               <img
                 src="assets/figures/ablation.png"
                 alt="Ablation results and attention visualizations for LaST-HD."
+                width="3245"
+                height="853"
                 loading="lazy"
                 decoding="async"
               >
@@ -489,22 +678,69 @@
                 robot data.
               </figcaption>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="analysis" class="section-pad section-alt">
+        <div class="container">
+          <div class="section-heading">
+            <p class="kicker">Analysis</p>
+            <h2>Latent alignment, qualitative rollouts, and deployment failure cases.</h2>
+            <p>
+              Additional visual evidence from the main paper and appendix shows how LaST-HD aligns human-hand and robot
+              trajectories, attends to task-relevant contacts, and behaves under unseen deployment conditions.
+            </p>
+          </div>
+
+          <div class="figure-grid figure-grid-two">
             <figure class="figure-shell" data-zoom>
               <img
-                src="assets/figures/evaluation.png"
-                alt="Robot executions and OOL Glove data in unseen scenarios."
+                src="assets/figures/latent-umap.png"
+                alt="UMAP visualization comparing SigLIP-based and action-conditioned world-model latent targets."
+                width="3042"
+                height="1048"
                 loading="lazy"
                 decoding="async"
               >
               <figcaption>
-                Robot executions and OOL Glove rollouts under unseen backgrounds, objects, and positions.
+                UMAP visualization of latent tokens generated by different supervision targets, comparing
+                SigLIP-based latents with action-conditioned world-model latents.
+              </figcaption>
+            </figure>
+            <figure class="figure-shell" data-zoom>
+              <img
+                src="assets/figures/attention.png"
+                alt="LaST-HD output-token-to-visual-token attention maps."
+                width="1614"
+                height="1522"
+                loading="lazy"
+                decoding="async"
+              >
+              <figcaption>
+                Output-token-to-visual-token attention maps highlighting embodiment-object interactions and
+                manipulation-relevant contact regions.
+              </figcaption>
+            </figure>
+            <figure class="figure-shell figure-wide" data-zoom>
+              <img
+                src="assets/figures/failure-cases.png"
+                alt="Representative failure cases observed during real-world deployment of LaST-HD."
+                width="2235"
+                height="685"
+                loading="lazy"
+                decoding="async"
+              >
+              <figcaption>
+                Representative failure cases from real-world deployment, including grasp instability, fluid-process
+                uncertainty, and accumulated coordination error.
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <section id="abstract" class="section-pad section-alt">
+      <section id="abstract" class="section-pad">
         <div class="container">
           <div class="section-heading center">
             <p class="kicker">Abstract</p>

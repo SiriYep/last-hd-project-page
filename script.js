@@ -3,6 +3,7 @@
    - active section highlight in the nav
    - scroll progress bar
    - scroll-reveal animations (respects reduced motion)
+   - muted autoplay for project videos
    - lightbox for zoomable figures
    ============================================================ */
 
@@ -71,7 +72,6 @@ const revealSelectors = [
   ".split-copy",
   ".result-summary article",
   ".table-wrap",
-  ".media-slot",
 ];
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
@@ -103,6 +103,25 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
 
   revealEls.forEach((el) => revealObserver.observe(el));
 }
+
+/* ---------- Video autoplay ---------- */
+(() => {
+  const videos = Array.from(document.querySelectorAll("video[autoplay]"));
+  if (!videos.length) return;
+
+  const startVideo = (video) => {
+    video.muted = true;
+    video.defaultMuted = true;
+    const play = video.play();
+    if (play && typeof play.catch === "function") play.catch(() => {});
+  };
+
+  const startAllVideos = () => videos.forEach(startVideo);
+  startAllVideos();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) startAllVideos();
+  });
+})();
 
 /* ---------- Lightbox ---------- */
 (() => {
