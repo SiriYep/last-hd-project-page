@@ -3,7 +3,6 @@
    - active section highlight in the nav
    - scroll progress bar
    - scroll-reveal animations (respects reduced motion)
-   - copy BibTeX
    - lightbox for zoomable figures
    ============================================================ */
 
@@ -73,7 +72,6 @@ const revealSelectors = [
   ".result-summary article",
   ".table-wrap",
   ".media-slot",
-  ".bibtex-block",
 ];
 
 if (!prefersReducedMotion && "IntersectionObserver" in window) {
@@ -105,32 +103,6 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
 
   revealEls.forEach((el) => revealObserver.observe(el));
 }
-
-/* ---------- Copy to clipboard ---------- */
-document.addEventListener("click", async (event) => {
-  const button = event.target.closest("[data-copy-target]");
-  if (!button) return;
-
-  const target = document.getElementById(button.dataset.copyTarget);
-  if (!target) return;
-
-  const label = button.querySelector("span") ? null : button;
-  const originalHTML = button.innerHTML;
-
-  try {
-    await navigator.clipboard.writeText(target.textContent.trim());
-    button.innerHTML = "Copied";
-    window.setTimeout(() => {
-      button.innerHTML = originalHTML;
-    }, 1500);
-  } catch {
-    button.innerHTML = "Copy failed";
-    window.setTimeout(() => {
-      button.innerHTML = originalHTML;
-    }, 1500);
-  }
-  void label;
-});
 
 /* ---------- Lightbox ---------- */
 (() => {
