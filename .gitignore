@@ -4,6 +4,10 @@
 # Local tooling (preview server config, etc.)
 /.claude/
 
+# Surge local domain file. Use `npx surge . last-hd.surge.sh` instead of
+# committing a CNAME that would also affect GitHub Pages.
+/CNAME
+
 # Paper LaTeX source & working files — kept local only (not needed by the site;
 # avoids publishing source for the double-blind submission). The compiled
 # assets/paper/main.pdf linked by the page is still tracked.
