@@ -19,7 +19,6 @@ rm -rf \
   "$dist/.gitignore" \
   "$dist/.surgeignore" \
   "$dist/deploy-surge.sh" \
-  "$dist/assets/paper" \
   "$dist/paper"
 
 npx --yes surge "$dist" "$domain"
