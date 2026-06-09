@@ -9,11 +9,9 @@
 # committing a CNAME that would also affect GitHub Pages.
 /CNAME
 
-# Paper LaTeX source & working files — kept local only (not needed by the site;
-# avoids publishing source for the double-blind submission). The compiled
-# assets/paper/main.pdf linked by the page is still tracked.
-# Leading slash anchors this to the repo root so it does NOT match assets/paper/.
+# Paper files are kept local only for the anonymous review site.
 /paper/
+/assets/paper/main.pdf
 
 # LaTeX build artifacts
 assets/paper/*.aux
