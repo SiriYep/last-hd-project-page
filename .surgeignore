@@ -1,9 +1,0 @@
-.git/
-.github/
-.claude/
-.DS_Store
-.gitignore
-.surgeignore
-CNAME
-deploy-surge.sh
-surge-dist/

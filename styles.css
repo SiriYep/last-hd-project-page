@@ -344,11 +344,19 @@ h1 {
 .author-line {
   max-width: 880px;
   margin: 30px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px 14px;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.04rem;
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--ink);
+}
+
+.author-line span {
+  white-space: nowrap;
 }
 
 .author-line sup {
@@ -358,14 +366,27 @@ h1 {
 }
 
 .affil-line {
-  margin: 9px 0 0;
+  max-width: 920px;
+  margin: 12px auto 0;
   font-size: 0.9rem;
   color: var(--muted);
+  line-height: 1.45;
+}
+
+.affil-line p {
+  margin: 2px 0;
 }
 
 .affil-line sup {
   color: var(--robot-ink);
   font-weight: 700;
+}
+
+.author-notes {
+  margin-top: 8px;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-weight: 600;
 }
 
 .hero-copy {
