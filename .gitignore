@@ -3,6 +3,7 @@
 
 # Local tooling (preview server config, etc.)
 /.claude/
+/surge-dist/
 /CNAME
 
 # Paper LaTeX source & working files — kept local only; the compiled
