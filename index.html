@@ -780,17 +780,19 @@
               a novel human-to-robot action learning paradigm that extends reasoning-before-acting VLA by aligning
               human-hand and robot demonstrations in a shared latent reasoning space. Rather than mimicking human
               kinematics, LaST-HD trains an auxiliary action-conditioned world model on human-hand and robot trajectories
-              to synthesize unified latent targets, aligning cross-embodiment representations through predicted physical
-              consequences.
+              to synthesize unified latent targets. After aligning cross-embodiment representations through predicted
+              physical consequences, these targets supervise LaST-HD&rsquo;s latent reasoning process, enabling it to internalize
+              shared physical dynamics and drive efficient human-hand action learning.
             </p>
             <p>
-              Moreover, we develop <strong>Out-of-Lab (OOL) Glove</strong>, a low-cost motion-capture glove tailored to
-              LaST-HD for human-hand data collection, providing precise keypoints and universal action supervision across
-              grippers and dexterous hands. Armed with the aligned latent space and high-fidelity human-hand data, we
-              develop a progressive <strong>mixed-to-human training recipe</strong>. Through mixed co-training, LaST-HD
-              improves generalization to novel objects, scenes, and positions using only human-hand demonstrations; with
-              online correction, it adapts to novel environments and achieves <strong>over 90% accuracy using only
-              20&nbsp;minutes</strong> of OOL glove data.
+              Moreover, we develop <strong>Out-of-Lab (OOL) Glove</strong>, a low-cost motion-capture glove tailored
+              to LaST-HD for human-hand data collection. The captured human data provide precise keypoints and serve as
+              universal action supervision across grippers and dexterous hands. Armed with the aligned latent space and
+              high-fidelity human-hand data, we develop a progressive <strong>mixed-to-human training recipe</strong>
+              comprising mixed human-robot co-training and human-hand online correction post-training. Through mixed
+              co-training, LaST-HD improves generalization to novel objects, scenes, and positions using only human-hand
+              demonstrations. With online correction, LaST-HD further adapts to novel environments and achieves
+              <strong>over 90% accuracy using only 20&nbsp;minutes</strong> of OOL glove data.
             </p>
           </div>
         </div>
